@@ -32,3 +32,7 @@ pub fn resize_image(file_ext: &str, new_width: u32, new_height: u32) {
     img2.resize(new_width, new_height, FilterType::CatmullRom).write_to(&mut buff, image_format).expect("Error encoding image to JPEG");
     write_file(buff.into_inner());
 }
+
+pub fn process() {
+    println!("process called!!");
+}
