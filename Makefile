@@ -6,6 +6,9 @@ launch-cli:
 launch-web:
 	cd webapp && serve -s .
 
+build-cli:
+	cd app && cargo build --release
+
 build-wasm:
 	cd libs/image_utils && wasm-pack build --target web --release
 	rm -rf webapp/libs

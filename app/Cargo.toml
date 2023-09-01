@@ -8,3 +8,10 @@ edition = "2021"
 [dependencies]
 image_utils = { path = "../libs/image_utils" }
 cli = { path = "../libs/cli" }
+
+[profile.release]
+strip = true
+opt-level = "s"
+lto = true
+debug = false
+codegen-units = 1
