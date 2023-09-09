@@ -5,3 +5,9 @@
 ```shell=
 make launch-cli
 ```
+
+## Launch Web App
+
+```shell=
+make launch-web
+```

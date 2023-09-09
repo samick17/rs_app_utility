@@ -1,5 +1,15 @@
 import init, { resize_image } from "./libs/image_utils.js";
 
+function prettifySize(size) {
+  const text = size.toString();
+  const arr = [];
+  const offset = text.length % 3;
+  if(offset > 0) arr.push(text.slice(0, offset));
+  for(let i = offset; i < text.length; i += 3) {
+    arr.push(text.slice(i, i + 3));
+  }
+  return arr.join(',');
+}
 async function openFile(exts) {
   return new Promise((resolve) => {
     const element = document.createElement('input');
@@ -81,9 +91,9 @@ async function displayImage(originFile, resizedFile) {
 
   const information = document.createElement('div');
   [
-  `Origin File Size: ${originFile.size}`,
+  `Origin File Size: ${prettifySize(originFile.size)} bytes`,
   `Origin Image Size: ${image1.width} x ${image1.height}`,
-  `Resized File Size: ${resizedFile.size}`,
+  `Resized File Size: ${prettifySize(resizedFile.size)} bytes`,
   `Resized Image Size: ${image2.width} x ${image2.height}`,
   ].forEach(text => {
     const element = document.createElement('div');;
